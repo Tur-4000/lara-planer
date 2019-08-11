@@ -2,14 +2,14 @@
 
 namespace App\Repositories;
 
-use App\Models\Category as Model;
+use App\Models\ToDoList as Model;
 
 /**
- * Class CategoryRepository
+ * Class ToDoListRepository
  *
  * @package App\Repositories
  */
-class CategoryRepository extends CoreRepository
+class ToDoListRepository extends CoreRepository
 {
     /**
      * @return string
@@ -33,25 +33,22 @@ class CategoryRepository extends CoreRepository
 
     public function getAllWithPaginate($perPage = null)
     {
-        $columns = ['id', 'name', 'slug', 'description', 'web_color_id'];
+        $columns = [
+            'id',
+            'title',
+            'category_id',
+            'due_date',
+            'end_date',
+            'note',
+            'is_ended',
+        ];
 
         $result = $this
             ->startConditions()
             ->select($columns)
-            ->orderby('id')
-            ->with(['webColor:id,name',])
+            ->orderby('due_date', 'DESC')
+            ->with(['category:id,name,web_color_id'])
             ->paginate($perPage);
-
-        return $result;
-    }
-
-    public function getForComboBox()
-    {
-        $result = $this
-            ->startConditions()
-            ->select(['id', 'name'])
-            ->toBase()
-            ->get();
 
         return $result;
     }

@@ -25,10 +25,10 @@ class CreateCategoriesTable extends Migration
             $table->text('description')
                 ->nullable()
                 ->comment('Описание категории');
-            $table->bigInteger('color_id')
+            $table->bigInteger('web_color_id')
                 ->comment('Цветовое выделение категории');
 
-            $table->foreign('color_id')
+            $table->foreign('web_color_id')
                 ->references('id')
                 ->on('web_colors');
 

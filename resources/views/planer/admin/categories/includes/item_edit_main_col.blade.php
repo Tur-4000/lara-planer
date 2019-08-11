@@ -18,13 +18,13 @@
                     </div>
                     <div class="form-group">
                         <label for="parent_id">Цвет выделения</label>
-                        <select name="color_id"
-                                id="color_id"
+                        <select name="web_color_id"
+                                id="web_color_id"
                                 class="form-control"
                                 required>
                             @foreach($colorList as $colorOption)
                                 <option value="{{ $colorOption->id }}"
-                                        @if($colorOption->id == $item->color_id) selected @endif>
+                                        @if($colorOption->id == $item->web_color_id) selected @endif>
                                     {{ $colorOption->name }}
                                 </option>
                             @endforeach

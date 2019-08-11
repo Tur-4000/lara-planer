@@ -2,30 +2,32 @@
 
 @section('content')
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                <h1>Категории</h1>
+            <div class="col-md-12">
+                <h1>Скоро</h1>
                 <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-                    <a href="{{ route('planer.admin.categories.create') }}" class="btn btn-primary">Добавить</a>
+                    <a href="{{ route('planer.create') }}" class="btn btn-outline-success">
+                        Добавить задачу
+                    </a>
                 </nav>
                 <table class="table table-hover table-sm">
                     <tr>
-                        <th>#</th>
-                        <th>Название</th>
-                        <th>Slug</th>
-                        <th>Описание</th>
+                        <th>Срок</th>
+                        <th></th>
+                        <th>Задача</th>
+                        <th>Примечание</th>
                     </tr>
                     @foreach($paginator as $item)
                         <tr>
-                            <td>{{ $item->id }}</td>
+                            <td>{{ $item->due_date }}</td>
                             <td>
-                                <a href="{{ route('planer.admin.categories.edit', $item->id) }}">
-                                    <span class="badge badge-{{ $item->webColor->name }}">{{ $item->name }}</span>
+                                <a href="">
+                                    <span class="badge badge-{{ $item->category->webColor->name }}">{{ $item->category->name }}</span>
                                 </a>
                             </td>
-                            <td>{{ $item->slug }}</td>
-                            <td>{{ $item->description }}</td>
+                            <td>{{ $item->title }}</td>
+                            <td>{{ $item->note }}</td>
                         </tr>
                     @endforeach
                 </table>
