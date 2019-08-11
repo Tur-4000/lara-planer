@@ -10,4 +10,6 @@ class WebColor extends Model
     use SoftDeletes;
 
     protected $table = 'web_colors';
+
+    protected $fillable = ['name'];
 }

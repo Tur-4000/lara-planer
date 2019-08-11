@@ -14,3 +14,21 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+//Админка
+$groupData = [
+    'namespace' => 'Planer\Admin',
+    'prefix' => 'admin/planer',
+];
+
+Route::group($groupData, function () {
+    $methods = ['index', 'edit', 'store', 'update', 'create'];
+
+    Route::resource('colors', 'WebColorController')
+        ->only($methods)
+        ->names('planer.admin.colors');
+});
