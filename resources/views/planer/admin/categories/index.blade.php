@@ -5,31 +5,35 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <h1>Цвета категорий</h1>
+                <h1>Категории</h1>
                 <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-                    <a href="{{ route('planer.admin.colors.create') }}" class="btn btn-primary">Добавить</a>
+                    <a href="{{ route('planer.admin.categories.create') }}" class="btn btn-primary">Добавить</a>
                 </nav>
                 <table class="table table-hover table-sm">
                     <tr>
                         <th>#</th>
-                        <th>Цвет</th>
+                        <th>Название</th>
+                        <th>Slug</th>
+                        <th>Описание</th>
                     </tr>
-                    @foreach($colors as $color)
+                    @foreach($paginator as $item)
                         <tr>
-                            <td>{{ $color->id }}</td>
+                            <td>{{ $item->id }}</td>
                             <td>
-                                <a href="{{ route('planer.admin.colors.edit', $color->id) }}">
-                                    <span class="badge badge-{{ $color->name }}">{{ $color->name }}</span>
+                                <a href="{{ route('planer.admin.categories.edit', $item->id) }}">
+                                    <span class="badge badge-{{ $item->color->name }}">{{ $item->name }}</span>
                                 </a>
                             </td>
+                            <td>{{ $item->slug }}</td>
+                            <td>{{ $item->description }}</td>
                         </tr>
                     @endforeach
                 </table>
-                @if($colors->total() > $colors->count())
+                @if($paginator->total() > $paginator->count())
                     <br>
                     <div class="row justify-content-center">
                         <div class="col-md-8">
-                            {{ $colors->links() }}
+                            {{ $paginator->links() }}
                         </div>
                     </div>
                 @endif

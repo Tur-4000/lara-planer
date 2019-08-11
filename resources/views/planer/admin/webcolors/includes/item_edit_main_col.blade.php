@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="title">Название цвета</label>
-                        <input name="name" value="{{ old('title', $item->name) }}"
+                        <input name="name" value="{{ old('name', $item->name) }}"
                                id="name"
                                type="text"
                                class="form-control"

@@ -9,6 +9,8 @@ class Category extends Model
 {
     use SoftDeletes;
 
+    protected $fillable = ['name', 'slug', 'description', 'color_id'];
+
     public function color()
     {
         return $this->belongsTo(WebColor::class);

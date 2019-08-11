@@ -2,14 +2,14 @@
 
 namespace App\Repositories;
 
-use App\Models\WebColor as Model;
+use App\Models\Category as Model;
 
 /**
- * Class WebColorRepository
+ * Class CategoryRepository
  *
  * @package App\Repositories
  */
-class WebColorRepository extends CoreRepository
+class CategoryRepository extends CoreRepository
 {
     /**
      * @return string
@@ -33,12 +33,13 @@ class WebColorRepository extends CoreRepository
 
     public function getAllWithPaginate($perPage = null)
     {
-        $columns = ['id', 'name'];
+        $columns = ['id', 'name', 'slug', 'description', 'color_id'];
 
         $result = $this
             ->startConditions()
             ->select($columns)
             ->orderby('id')
+            ->with(['color:id,name',])
             ->paginate($perPage);
 
         return $result;
@@ -48,7 +49,7 @@ class WebColorRepository extends CoreRepository
     {
         $result = $this
             ->startConditions()
-            ->select(['id', 'name'])
+            ->select('name')
             ->toBase()
             ->get();
 

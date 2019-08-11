@@ -31,4 +31,8 @@ Route::group($groupData, function () {
     Route::resource('colors', 'WebColorController')
         ->only($methods)
         ->names('planer.admin.colors');
+
+    Route::resource('categories', 'CategoryController')
+        ->only($methods)
+        ->names('planer.admin.categories');
 });
