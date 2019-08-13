@@ -12,4 +12,9 @@ class WebColor extends Model
     protected $table = 'web_colors';
 
     protected $fillable = ['name'];
+
+    public function categories()
+    {
+        return $this->hasMany(Category::class);
+    }
 }

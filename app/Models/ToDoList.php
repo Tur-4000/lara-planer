@@ -33,14 +33,14 @@ class ToDoList extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function webColor()
-    {
-        return $this->hasManyThrough(
-            WebColor::class,
-            Category::class,
-            'web_color_id',
-            'id',
-            'category_id'
-        );
-    }
+//    public function webColor()
+//    {
+//        return $this->hasManyThrough(
+//            WebColor::class,
+//            Category::class,
+//            'web_color_id',
+//            'id',
+//            'category_id'
+//        );
+//    }
 }

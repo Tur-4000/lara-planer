@@ -46,8 +46,13 @@ class ToDoListRepository extends CoreRepository
         $result = $this
             ->startConditions()
             ->select($columns)
-            ->orderby('due_date', 'DESC')
-            ->with(['category:id,name,web_color_id'])
+            ->orderby('due_date', 'ASC')
+//            ->with(['category:id,name,web_color_id'])
+            ->with([
+                'category' => function ($query) {
+                    $query->select(['id', 'name', 'web_color_id'])
+                        ->with(['webColor:id,name']);
+            }])
             ->paginate($perPage);
 
         return $result;

@@ -20,7 +20,7 @@
                     </tr>
                     @foreach($paginator as $item)
                         <tr>
-                            <td>{{ $item->due_date }}</td>
+                            <td>{{ \Carbon\Carbon::parse($item->due_date)->format('d.M.Y') }}</td>
                             <td>
                                 <a href="">
                                     <span class="badge badge-{{ $item->category->webColor->name }}">{{ $item->category->name }}</span>
@@ -31,6 +31,32 @@
                         </tr>
                     @endforeach
                 </table>
+
+                @foreach($paginator as $item)
+                <div class="row mb-1">
+                    <div class="col-2 pr-1">
+                        <div class="card">
+                            <div class="card-body">
+                                {{ \Carbon\Carbon::parse($item->due_date)->format('d.M.Y') }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 pl-0">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title">
+                                    {{ $item->title }}
+                                    <a href="">
+                                        <span class="badge badge-{{ $item->category->webColor->name }}">{{ $item->category->name }}</span>
+                                    </a>
+                                </div>
+                                {{ $item->note }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+
                 @if($paginator->total() > $paginator->count())
                     <br>
                     <div class="row justify-content-center">
