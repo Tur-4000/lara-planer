@@ -33,7 +33,7 @@ class WebColorRepository extends CoreRepository
 
     public function getAllWithPaginate($perPage = null)
     {
-        $columns = ['id', 'name'];
+        $columns = ['id', 'name', 'title', 'background', 'color'];
 
         $result = $this
             ->startConditions()
@@ -48,7 +48,7 @@ class WebColorRepository extends CoreRepository
     {
         $result = $this
             ->startConditions()
-            ->select(['id', 'name'])
+            ->select(['id', 'name', 'title'])
             ->toBase()
             ->get();
 
