@@ -74,7 +74,7 @@ class ToDoListController extends BaseController
         $item = (new ToDoList())->create($data);
 
         if ($item) {
-            return redirect()->route('planer.edit', [$item->id])
+            return redirect()->route('tasks.edit', [$item->id])
                 ->with(['success' => 'Успешно сохранено']);
         } else {
             return back()->withErrors(['msg' => 'Ошибка сохранения'])
@@ -101,7 +101,12 @@ class ToDoListController extends BaseController
      */
     public function edit($id)
     {
-        dd(__METHOD__, \request()->all());
+//        dd(__METHOD__, \request()->all());
+        $title = 'Редактировать задачу';
+        $item = (new ToDoList())->findOrFail($id);
+        $categoryList = $this->categoryRepository->getForComboBox();
+
+        return view('planer.edit', compact('item', 'categoryList', 'title'));
     }
 
     /**

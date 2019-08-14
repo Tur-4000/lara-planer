@@ -11,14 +11,14 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('/', function () {
+    return redirect()->route('tasks.index');
+});
+
+Route::resource('/tasks', 'Planer\ToDoListController')
+    ->names('tasks');
 
 Auth::routes();
-
-Route::resource('', 'Planer\ToDoListController')
-    ->names('planer');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

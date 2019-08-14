@@ -96,3 +96,11 @@ table.month td ul li {
     padding-left: 3px;
     background-color: lightgreen;
 }
+
+.row-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+.task-content {
+    height: 100%;
+}

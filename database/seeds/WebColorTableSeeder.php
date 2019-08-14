@@ -46,7 +46,7 @@ class WebColorTableSeeder extends Seeder
                 'name' => 'gray',
                 'title' => 'Серый',
                 'background' => '808080',
-                'color' => '000',
+                'color' => 'fff',
             ],
             [
                 'name' => 'lightblue',

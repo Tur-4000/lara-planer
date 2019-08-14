@@ -39,7 +39,7 @@ class CategoryRepository extends CoreRepository
             ->startConditions()
             ->select($columns)
             ->orderby('id')
-            ->with(['webColor:id,name',])
+            ->with(['webColor:id,name,background,color',])
             ->paginate($perPage);
 
         return $result;

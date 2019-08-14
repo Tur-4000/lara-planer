@@ -5,12 +5,7 @@
 <div class="container col-lg-6 col-md-6 col-sm-12 col-xs-12">
     <h3>{{ $title }}</h3>
 
-@if($item->exists)
-    <form action="{{ route('planer.update') }}" method="post" class="">
-        @method('PATCH')
-@else
-    <form action="{{ route('planer.store') }}" method="post">
-@endif
+    <form action="{{ route('tasks.store') }}" method="post">
         @csrf
         <div class="container">
             @php

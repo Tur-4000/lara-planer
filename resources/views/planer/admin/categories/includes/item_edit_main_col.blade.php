@@ -25,7 +25,7 @@
                             @foreach($colorList as $colorOption)
                                 <option value="{{ $colorOption->id }}"
                                         @if($colorOption->id == $item->web_color_id) selected @endif>
-                                    {{ $colorOption->name }}
+                                    {{ $colorOption->title }}
                                 </option>
                             @endforeach
                         </select>

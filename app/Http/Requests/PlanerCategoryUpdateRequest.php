@@ -24,7 +24,7 @@ class PlanerCategoryUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|min:3|max:32|unique:categories',
+            'name' => 'required|min:3|max:32',
         ];
     }
 }
