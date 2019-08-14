@@ -41,9 +41,11 @@ class WebColorController extends AdminBaseController
      */
     public function create()
     {
+        $title = 'Добавить цвет';
         $item = new WebColor();
 
-        return view('planer.admin.webcolors.edit', compact('item'));
+        return view('planer.admin.webcolors.edit',
+            compact('item', 'title'));
     }
 
     /**
@@ -80,7 +82,10 @@ class WebColorController extends AdminBaseController
             abort(404);
         }
 
-        return view('planer.admin.webcolors.edit', compact('item'));
+        $title = 'Редактировать цвет';
+
+        return view('planer.admin.webcolors.edit',
+            compact('item', 'title'));
     }
 
     /**

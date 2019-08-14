@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="container col-lg-6 col-md-6 col-sm-12 col-xs-12">
-        <h3>{{ $title }}</h3>
+
 
             <form action="{{ route('tasks.update', $item->id) }}" method="post" class="">
                 @method('PATCH')
@@ -42,6 +42,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-body">
+                                    <div class="card-title"><h3>{{ $title }}</h3></div>
                                     <div class="form-group">
                                         <label for="title">Название задачи</label>
                                         <input type="text" value="{{ old('title', $item->title) }}"
@@ -79,17 +80,20 @@
                                                   class="form-control"
                                                   rows="3">{{ old('note', $item->note) }}</textarea>
                                     </div>
+
+                                    <div class="col-md-12 mt-1" role="group">
+                                        <button type="submit" class="btn btn-warning">
+                                            <span class="icon icon-floppy"></span>
+                                            Сохранить</button>
+                                        <a href="/" class="btn btn-info float-right">
+                                            <span class="icon icon-reply"></span> Назад к задачам</a>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-12 mt-1" role="group">
-                            <button type="submit" class="btn btn-warning">
-                                <span class="icon icon-floppy"></span>
-                                Сохранить</button>
-                            <a href="/" class="btn btn-info float-right">
-                                <span class="icon icon-reply"></span> Назад к задачам</a>
-                        </div>
+
                     </div>
                 </div>
             </form>

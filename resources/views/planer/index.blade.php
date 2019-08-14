@@ -12,12 +12,15 @@
                     </a>
                 </nav>
                 <table class="table table-hover table-sm">
+                    <thead class="thead-light">
                     <tr>
                         <th>Срок</th>
                         <th></th>
                         <th>Задача</th>
                         <th>Примечание</th>
                     </tr>
+                    </thead>
+                    <tbody>
                     @foreach($paginator as $item)
                         <tr>
                             <td>{{ \Carbon\Carbon::parse($item->due_date)->format('d.M.Y') }}</td>
@@ -27,6 +30,7 @@
                             <td>{{ $item->note }}</td>
                         </tr>
                     @endforeach
+                    </tbody>
                 </table>
 
                 @if($paginator->total() > $paginator->count())

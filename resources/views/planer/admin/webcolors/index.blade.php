@@ -4,12 +4,14 @@
 
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-6">
+            <div class="col-xl-7 col-md-9 col-sm-12">
                 <div class="card">
                     <div class="card-body">
                         <div class="row mb-2">
-                            <div class="col-6"><p class="h2 my-auto py-auto">Цвета категорий</p></div>
-                            <div class="col-6">
+                            <div class="col-6 align-middle">
+                                <p class="h2">Цвета категорий</p>
+                            </div>
+                            <div class="col-6 align-middle">
                                 <a href="{{ route('planer.admin.colors.create') }}" class="btn btn-outline-success float-right">Добавить</a>
                             </div>
                         </div>
@@ -26,9 +28,9 @@
                             <tbody>
                                 @foreach($colors as $color)
                                     <tr>
-                                        <td><p class="my-auto py-auto">{{ $color->id }}</p></td>
-                                        <td><p class="my-auto py-auto">{{ $color->title }}</p></td>
-                                        <td>
+                                        <td class="align-middle">{{ $color->id }}</td>
+                                        <td class="align-middle">{{ $color->title }}</td>
+                                        <td class="align-middle">
                                             <a href="{{ route('planer.admin.colors.edit', $color->id) }}" class="h3">
                                                  <span class="badge"
                                                        style="background:#{{ $color->background }};color:#{{ $color->color }}">
@@ -36,8 +38,8 @@
                                                 </span>
                                             </a>
                                         </td>
-                                        <td><p class="my-auto py-auto">{{ $color->background }}</p></td>
-                                        <td><p class="my-auto py-auto">{{ $color->color }}</p></td>
+                                        <td class="align-middle">{{ $color->background }}</td>
+                                        <td class="align-middle">{{ $color->color }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
