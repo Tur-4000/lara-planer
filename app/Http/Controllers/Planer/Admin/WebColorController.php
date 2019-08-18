@@ -44,8 +44,10 @@ class WebColorController extends AdminBaseController
         $title = 'Добавить цвет';
         $item = new WebColor();
 
-        return view('planer.admin.webcolors.edit',
-            compact('item', 'title'));
+        return view(
+            'planer.admin.webcolors.edit',
+            compact('item', 'title')
+        );
     }
 
     /**
@@ -84,8 +86,10 @@ class WebColorController extends AdminBaseController
 
         $title = 'Редактировать цвет';
 
-        return view('planer.admin.webcolors.edit',
-            compact('item', 'title'));
+        return view(
+            'planer.admin.webcolors.edit',
+            compact('item', 'title')
+        );
     }
 
     /**
