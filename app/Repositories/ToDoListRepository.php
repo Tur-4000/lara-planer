@@ -60,4 +60,33 @@ class ToDoListRepository extends CoreRepository
 
         return $result;
     }
+
+    public function getTask($id)
+    {
+        $columns = [
+            'id',
+            'title',
+            'category_id',
+            'due_date',
+            'end_date',
+            'note',
+            'is_ended',
+        ];
+
+        $result = $this
+            ->startConditions()
+            ->select($columns)
+            ->where('id', $id)
+            ->with(
+                [
+                    'category' => function ($query) {
+                        $query->select(['id', 'name', 'web_color_id'])
+                            ->with(['webColor:id,name,background,color']);
+                    }
+                ]
+            )
+            ->first();
+
+        return $result;
+    }
 }

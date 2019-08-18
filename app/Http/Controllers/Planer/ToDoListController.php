@@ -90,7 +90,10 @@ class ToDoListController extends BaseController
      */
     public function show($id)
     {
-        dd(__METHOD__, \request()->all());
+//        dd(__METHOD__, \request()->all());
+        $task = $this->toDoListRepository->getTask($id);
+//        dd(__METHOD__, \request()->all(), $task);
+        return view('planer.show', compact('task'));
     }
 
     /**

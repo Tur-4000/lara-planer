@@ -6,3 +6,40 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    color: #555;
+    background-color: #ccc;
+}
+
+.app-content {
+    flex: 1;
+}
+
+.navbar-planer {
+    padding: .35rem 1rem;
+    background-color: #800080;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+fieldset {
+    border: #800080 solid 1px;
+    border-radius: .25rem;
+}
+legend {
+    width:inherit;
+    padding: 0 .5rem;
+    margin: 0 .5rem;
+}
+
+.thead-indigo {
+    color: #ffffff;
+    background-color: indigo;
+}
+.footer {
+    color: rgba(0,0,0,0.45);
+    text-shadow: 2px 2px 3px rgba(255,255,255,0.1);
+}

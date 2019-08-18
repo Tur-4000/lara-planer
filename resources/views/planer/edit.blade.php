@@ -1,10 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
-    <div class="container col-lg-6 col-md-6 col-sm-12 col-xs-12">
-
-
             <form action="{{ route('tasks.update', $item->id) }}" method="post" class="">
                 @method('PATCH')
                 @csrf
@@ -39,7 +35,7 @@
                     @endif
 
                     <div class="row justify-content-center">
-                        <div class="col-md-12">
+                        <div class="col-xl-6 col-lg-8 col-md-12 col-sm-12 col-12">
                             <div class="card">
                                 <div class="card-body">
                                     <div class="card-title"><h3>{{ $title }}</h3></div>
@@ -92,11 +88,7 @@
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </form>
-    </div>
-
 @endsection

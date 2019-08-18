@@ -8,10 +8,6 @@
     font-weight: bold;
 }
 
-.thead-indigo {
-    color: #ffffff;
-    background-color: indigo;
-}
 
 
 .badge-red {
@@ -104,3 +100,5 @@ table.month td ul li {
 .task-content {
     height: 100%;
 }
+
+
