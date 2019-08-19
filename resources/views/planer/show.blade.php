@@ -28,7 +28,7 @@
                                 <form action="{{ route('task.close', $task->id) }}" method="post" class=""><div class="form-group mt-2">
                                         @csrf
                                         <label for="end_date">Дата завершения</label>
-                                        <input type="date"
+                                        <input type="date" value="{{ $task->end_date }}"
                                                name="end_date"
                                                id="end_date"
                                                class="form-control"
@@ -46,9 +46,7 @@
                                                 <input name="is_clone"
                                                        type="checkbox"
                                                        class="form-check-input"
-                                                       value="1"
-{{--                                                       checked="checked"--}}
-                                                >
+                                                       value="1">
                                                 <label class="form-check-label" for="is_clone">Создать новую задачу</label>
                                             </div>
 

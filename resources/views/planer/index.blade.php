@@ -22,6 +22,7 @@
                         <table class="table table-hover table-sm">
                             <thead class="thead-light">
                             <tr>
+                                <th width="40px"></th>
                                 <th width="200px">Срок</th>
                                 <th width="140px"></th>
                                 <th>Задача</th>
@@ -31,6 +32,10 @@
                             <tbody>
                             @foreach($paginator as $item)
                                 <tr>
+                                    <td><a href="{{ route('tasks.edit', $item->id) }}">
+                                            <span class="icon icon-pencil"></span>
+                                        </a>
+                                    </td>
                                     <td>{{ Date::parse($item->due_date)->format('(D) j F Y') }}</td>
                                     <td><span class="badge badge-{{ $item->category->webColor->name }}">{{ $item->category->name }}</span></a>
                                     </td>

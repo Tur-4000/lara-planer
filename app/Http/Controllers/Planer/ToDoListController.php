@@ -185,7 +185,7 @@ class ToDoListController extends BaseController
         if ($result) {
             return redirect()
                 ->route('tasks.index', $task->id)
-                ->with(['success' => 'Успешно сохранено']);
+                ->with(['success' => 'Успешно обновлено']);
         } else {
             return back()
                 ->withErrors(['msg' => 'Ошибка сохранения'])
