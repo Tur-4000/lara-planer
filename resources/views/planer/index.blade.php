@@ -5,13 +5,18 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
+                        @include('planer.includes.messages')
                         <div class="card-title">
-                            <h1>Скоро</h1>
+                            <h1>{{ $title }}</h1>
                         </div>
                         <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
                             <a href="{{ route('tasks.create') }}" class="btn btn-outline-success">
                                 <span class="icon icon-list-add"></span>
                                 Добавить задачу
+                            </a>
+                            <a href="{{ route('tasks.closed') }}" class="btn btn-outline-secondary float-right">
+                                <span class="icon icon-check"></span>
+                                Закрытые задачи
                             </a>
                         </nav>
                         <table class="table table-hover table-sm">

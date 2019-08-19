@@ -15,6 +15,10 @@ Route::get('/', function () {
     return redirect()->route('tasks.index');
 });
 
+Route::get('/tasks/closed', 'Planer\ToDoListController@closedTask')
+    ->name('tasks.closed');
+Route::post('/task/{id}/close', 'Planer\ToDoListController@closeTask')
+    ->name('task.close');
 Route::resource('/tasks', 'Planer\ToDoListController')
     ->names('tasks');
 

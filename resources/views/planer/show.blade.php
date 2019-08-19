@@ -3,6 +3,7 @@
 @section('content')
         <div class="row justify-content-center">
             <div class="col-xl-6 col-lg-8 col-md-12 col-sm-12 col-12">
+                @include('planer.includes.messages')
                 <div class="card">
                     <div class="card-body">
                         <div class="card-title">
@@ -24,7 +25,8 @@
 
                             <fieldset class="px-2">
                                 <legend>Завершить задачу</legend>
-                                <form action="" method="get" class=""><div class="form-group mt-2">
+                                <form action="{{ route('task.close', $task->id) }}" method="post" class=""><div class="form-group mt-2">
+                                        @csrf
                                         <label for="end_date">Дата завершения</label>
                                         <input type="date"
                                                name="end_date"
@@ -45,17 +47,20 @@
                                                        type="checkbox"
                                                        class="form-check-input"
                                                        value="1"
-                                                       checked="checked">
+{{--                                                       checked="checked"--}}
+                                                >
                                                 <label class="form-check-label" for="is_clone">Создать новую задачу</label>
                                             </div>
+
+                                            <input type="hidden" name="title" value="{{ $task->title }}">
+                                            <input type="hidden" name="category_id" value="{{ $task->category_id }}">
 
                                             <div class="form-group mt-1">
                                                 <label for="due_date">Следующий крайний срок</label>
                                                 <input type="date"
                                                        name="due_date"
                                                        id="due_date"
-                                                       class="form-control"
-                                                       required>
+                                                       class="form-control">
                                             </div>
                                             <div class="form-group">
                                                 <label for="note">Примечание к новой задаче</label>

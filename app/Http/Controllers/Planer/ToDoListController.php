@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Planer;
 
 use App\Http\Requests\PlanerCreateRequest;
+use App\Http\Requests\PlanerCloseRequest;
 use App\Models\ToDoList;
 use App\Repositories\CategoryRepository;
 use App\Repositories\ToDoListRepository;
@@ -36,11 +37,25 @@ class ToDoListController extends BaseController
     public function index()
     {
 //        dd(__METHOD__, \request()->all());
+        $title = 'Скоро';
         $paginator = $this->toDoListRepository->getAllWithPaginate(25);
 
 //        dd(__METHOD__, $paginator);
 
-        return view('planer.index', compact('paginator'));
+        return view('planer.index', compact('paginator', 'title'));
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function closedTask()
+    {
+        $title = 'Закрытые задачи';
+        $paginator = $this->toDoListRepository->getClosedWithPaginate(25);
+
+        return view('planer.index', compact('paginator', 'title'));
     }
 
     /**
@@ -113,6 +128,41 @@ class ToDoListController extends BaseController
     }
 
     /**
+     * Закрытие задачи и клонирование на следующий срок
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function closeTask(PlanerCloseRequest $request, $id)
+    {
+//        dd(__METHOD__, \request()->all());
+        $task = $this->toDoListRepository->getEdit($id);
+        if (empty($task)) {
+            return back()
+                ->withErrors(['msg' => "Задача id=[{$id}] не найдена"])
+                ->withInput();
+        }
+
+        $data = $request->all();
+        $result = $task->update(['end_date' => $data['end_date'], 'is_ended' => true]);
+
+        if ($data['is_clone']) {
+            $this->toDoListRepository->cloneTask($data);
+        }
+
+        if ($result) {
+            return redirect()
+                ->route('tasks.index', $task->id)
+                ->with(['success' => "Задача '{$task->title}' закрыта"]);
+        } else {
+            return back()
+                ->withErrors(['msg' => 'Ошибка сохранения'])
+                ->withInput();
+        }
+    }
+
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -121,7 +171,26 @@ class ToDoListController extends BaseController
      */
     public function update(Request $request, $id)
     {
-        dd(__METHOD__, \request()->all());
+//        dd(__METHOD__, \request()->all());
+        $task = $this->toDoListRepository->getEdit($id);
+        if (empty($task)) {
+            return back()
+                ->withErrors(['msg' => "Запись id=[{$id}] не найдена"])
+                ->withInput();
+        }
+
+        $data = $request->all();
+        $result = $task->update($data);
+
+        if ($result) {
+            return redirect()
+                ->route('tasks.index', $task->id)
+                ->with(['success' => 'Успешно сохранено']);
+        } else {
+            return back()
+                ->withErrors(['msg' => 'Ошибка сохранения'])
+                ->withInput();
+        }
     }
 
     /**
