@@ -10,7 +10,10 @@
                                 <p class="h2">Цвета категорий</p>
                             </div>
                             <div class="col-6 align-middle">
-                                <a href="{{ route('planer.admin.colors.create') }}" class="btn btn-outline-success float-right">Добавить</a>
+                                <a href="{{ route('planer.admin.colors.create') }}" class="btn btn-outline-success float-right">
+                                    <span class="icon icon-list-add"></span>
+                                    Добавить
+                                </a>
                             </div>
                         </div>
                         <table class="table table-hover table-sm mt-3">

@@ -8,7 +8,10 @@
                         <div class="row mb-2">
                             <div class="col-6"><p class="h2 my-auto py-auto">Категории</p></div>
                             <div class="col-6">
-                                <a href="{{ route('planer.admin.categories.create') }}" class="btn btn-outline-success float-right">Добавить</a>
+                                <a href="{{ route('planer.admin.categories.create') }}" class="btn btn-outline-success float-right">
+                                    <span class="icon icon-list-add"></span>
+                                    Добавить
+                                </a>
                             </div>
                         </div>
                         <table class="table table-hover table-sm mt-3">

@@ -7,12 +7,15 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+//Photon UI kit icons
+@import "icons";
+
 body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    color: #555;
-    background-color: #ccc;
+    color: #737475;
+    background-color: #f5f5f4;
 }
 
 .app-content {
@@ -23,6 +26,10 @@ body {
     padding: .35rem 1rem;
     background-color: #800080;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+strong, b {
+    font-weight: 600;
 }
 
 fieldset {

@@ -26,6 +26,7 @@
     >
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ url('/') }}">
+                <span class="icon icon-list"></span>
                 Planer
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -52,7 +53,7 @@
                                 <span class="icon icon-bookmarks"></span>
                                 Справочник категорий</a>
                             <a class="dropdown-item" href="{{ route('planer.admin.colors.index') }}">
-                                <span class="icon icon-bookmarks"></span>
+                                <span class="icon icon-palette"></span>
                                 Цвета категорий</a>
                             <a class="dropdown-item" href="#">
                                 <span class="icon icon-users"></span>
@@ -68,7 +69,7 @@
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link" href="{{ route('login') }}"><span class="icon icon-login"></span> {{ __('Login') }}</a>
                         </li>
                         @if (Route::has('register'))
                             <li class="nav-item">
@@ -85,6 +86,7 @@
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
+                                    <span class="icon icon-logout"></span>
                                     {{ __('Logout') }}
                                 </a>
 

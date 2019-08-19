@@ -43,6 +43,14 @@
                                minlength="3"
                                required>
                     </div>
+
+                    <div class="col-md-12 mt-1" role="group">
+                        <button type="submit" class="btn btn-warning">
+                            <span class="icon icon-floppy"></span>
+                            Сохранить</button>
+                        <a href="{{ route('planer.admin.colors.index') }}" class="btn btn-info float-right">
+                            <span class="icon icon-reply"></span> Назад</a>
+                    </div>
                 </div>
             </div>
         </div>

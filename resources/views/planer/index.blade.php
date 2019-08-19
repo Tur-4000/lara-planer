@@ -10,6 +10,7 @@
                         </div>
                         <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
                             <a href="{{ route('tasks.create') }}" class="btn btn-outline-success">
+                                <span class="icon icon-list-add"></span>
                                 Добавить задачу
                             </a>
                         </nav>
